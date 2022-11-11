@@ -11,7 +11,7 @@ class McQuestionLoader implements QuestionLoader {
 
     }
 
-    public static McQuestion loadFromJSON(File f) {
+    public static McQuestion loadFromJSON(File f) throws FileNotFoundException {
 
         String[] answers = {"answer 1", "answer 2"};
         return new McQuestion("Test question", answers, 0);
