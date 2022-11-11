@@ -6,9 +6,13 @@ class McQuestion implements Question {
     private final String[] possibleAnswers;
     private final int[] correctAnswerIdx;
 
-    public McQuestion(String questionPrompt, String[] possibleAnswers, int... correctAnswerIdx) {
+    public McQuestion(String questionPrompt, String[] possibleAnswers, int... correctAnswerIdx) throws IllegalArgumentException {
         this.questionPrompt = questionPrompt;
         this.possibleAnswers = possibleAnswers;
+        for(int i: correctAnswerIdx) {
+            if(i > (possibleAnswers.length - 1))
+                throw new IllegalArgumentException("correctAnswerIdx is not in the range of possible answers.");
+        }
         this.correctAnswerIdx = correctAnswerIdx;
     }
 
@@ -54,7 +58,7 @@ class McQuestion implements Question {
     public static void main(String[] args) {
         String testPrompt = "Test question:";
         String[] testAnswers = {"answer 1", "answer 2", "answer 3", "answer 4", "answer 5"};
-        McQuestion testQuestion = new McQuestion(testPrompt, testAnswers, 0);
+        McQuestion testQuestion = new McQuestion(testPrompt, testAnswers, 1);
         log(testQuestion.getPromptAndAnswers());
         // log(Arrays.toString(testQuestion.getCorrectAnswers()));
     }
