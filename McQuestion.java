@@ -21,10 +21,6 @@ class McQuestion implements Question {
         return (char)(answerPrefix + index) + ") " + possibleAnswers[index];
     }
 
-    public boolean isCorrectAnswer(int index) {
-        return Arrays.asList(correctAnswerIdx).contains(index);
-    }
-
     public String getPossibleAnswers() {
         String answerList = "";
         for(int i = 0; i < possibleAnswers.length; i++) {
@@ -37,6 +33,11 @@ class McQuestion implements Question {
         return correctAnswerIdx;
     }
 
+    public boolean isCorrectAnswer(int index) {
+        return Arrays.asList(correctAnswerIdx).contains(index);
+    }
+
+
     public String[] getCorrectAnswers() {
         ArrayList<String> answers = new ArrayList<String>();
         for (int i: correctAnswerIdx) {
@@ -45,17 +46,22 @@ class McQuestion implements Question {
         return answers.toArray(new String[0]);
     }
 
+    public String getQuestionAndAnswers() {
+        return getQuestionPrompt() + "\n" + getPossibleAnswers();
+
+    }
+
     public static void main(String[] args) {
         String testPrompt = "Test question:";
         String[] testAnswers = {"answer 1", "answer 2", "answer 3", "answer 4", "answer 5"};
         McQuestion testQuestion = new McQuestion(testPrompt, testAnswers, 0);
-        log(testQuestion.getQuestionPrompt());
-        log(testQuestion.getPossibleAnswers());
-        log(Arrays.toString(testQuestion.getCorrectAnswers()));
+        log(testQuestion.getQuestionAndAnswers());
+        // log(Arrays.toString(testQuestion.getCorrectAnswers()));
     }
 
     public static void log(String s) {
         System.out.println(s);
     }
+    
 
 }

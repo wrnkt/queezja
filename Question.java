@@ -5,4 +5,5 @@ interface Question {
 
     public int[] getCorrectAnswerIdx();
     public boolean isCorrectAnswer(int index);
+    public String[] getCorrectAnswers();
 }
