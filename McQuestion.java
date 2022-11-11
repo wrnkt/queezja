@@ -46,7 +46,7 @@ class McQuestion implements Question {
         return answers.toArray(new String[0]);
     }
 
-    public String getQuestionAndAnswers() {
+    public String getPromptAndAnswers() {
         return getQuestionPrompt() + "\n" + getPossibleAnswers();
 
     }
@@ -55,7 +55,7 @@ class McQuestion implements Question {
         String testPrompt = "Test question:";
         String[] testAnswers = {"answer 1", "answer 2", "answer 3", "answer 4", "answer 5"};
         McQuestion testQuestion = new McQuestion(testPrompt, testAnswers, 0);
-        log(testQuestion.getQuestionAndAnswers());
+        log(testQuestion.getPromptAndAnswers());
         // log(Arrays.toString(testQuestion.getCorrectAnswers()));
     }
 
