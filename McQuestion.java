@@ -1,11 +1,12 @@
 import java.util.Arrays;
+import java.util.ArrayList;
 
 class McQuestion implements Question {
     private final String questionPrompt;
     private final String[] possibleAnswers;
     private final int[] correctAnswerIdx;
 
-    public McQuestion(String questionPrompt, String[] possibleAnswers, int[] correctAnswerIdx) {
+    public McQuestion(String questionPrompt, String[] possibleAnswers, int... correctAnswerIdx) {
         this.questionPrompt = questionPrompt;
         this.possibleAnswers = possibleAnswers;
         this.correctAnswerIdx = correctAnswerIdx;
@@ -36,13 +37,21 @@ class McQuestion implements Question {
         return correctAnswerIdx;
     }
 
+    public String[] getCorrectAnswers() {
+        ArrayList<String> answers = new ArrayList<String>();
+        for (int i: correctAnswerIdx) {
+            answers.add(getAnswerByIdx(i));
+        }
+        return answers.toArray(new String[0]);
+    }
+
     public static void main(String[] args) {
         String testPrompt = "Test question:";
         String[] testAnswers = {"answer 1", "answer 2", "answer 3", "answer 4", "answer 5"};
-        int[] correctAnswerIdx = {0};
-        McQuestion testQuestion = new McQuestion(testPrompt, testAnswers, correctAnswerIdx);
+        McQuestion testQuestion = new McQuestion(testPrompt, testAnswers, 0);
         log(testQuestion.getQuestionPrompt());
         log(testQuestion.getPossibleAnswers());
+        log(Arrays.toString(testQuestion.getCorrectAnswers()));
     }
 
     public static void log(String s) {
