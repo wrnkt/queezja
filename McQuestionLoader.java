@@ -8,9 +8,13 @@ class McQuestionLoader implements QuestionLoader {
     public McQuestionLoader() {
     }
      
-    public static McQuestion loadSingleQuestion(File f) {
+    public static McQuestion loadFromTextFile(File f) {
         String[] answers = {"answer 1", "answer 2"};
         return new McQuestion("Test question", answers, 0);
+
+    }
+
+    public static McQuestion loadFromJSON(File f) {
 
     }
 
@@ -19,7 +23,7 @@ class McQuestionLoader implements QuestionLoader {
     public static void main(String[] args) {
         log("Testing McQuestionLoader");
         File loadFile = new File("loadfile.txt");
-        McQuestion newQuestion = McQuestionLoader.loadSingleQuestion(loadFile);
+        McQuestion newQuestion = McQuestionLoader.loadFromTextFile(loadFile);
         log(newQuestion.getPromptAndAnswers());
         
         log("-----------");
