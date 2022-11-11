@@ -2,9 +2,6 @@ import java.io.File;
 
 class McQuestionLoader implements QuestionLoader {
 
-    // McQuestionConstructor
-    // public McQuestion(String questionPrompt, String[] possibleAnswers, int... correctAnswerIdx) {
-
     public McQuestionLoader() {
     }
      
@@ -16,9 +13,9 @@ class McQuestionLoader implements QuestionLoader {
 
     public static McQuestion loadFromJSON(File f) {
 
+        String[] answers = {"answer 1", "answer 2"};
+        return new McQuestion("Test question", answers, 0);
     }
-
-    //public Question[] loadMultipleQuestion(File f);
 
     public static void main(String[] args) {
         log("Testing McQuestionLoader");
