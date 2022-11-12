@@ -26,7 +26,6 @@ class ResponseTracker {
         String[] testAnswers = {"answer 1", "answer 2", "answer 3", "answer 4", "answer 5"};
         McQuestion testQuestion = new McQuestion(testPrompt, testAnswers, 1);
         ResponseTracker testResponses = new ResponseTracker(testQuestion);
-        testResponses.getResponse();
 
     }
 
