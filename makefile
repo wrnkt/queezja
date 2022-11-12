@@ -7,6 +7,12 @@ CLASSDIR = classes
 
 default: Questioner.class
 
+Analyzer.class: Analyzer.java
+		$(JC) $(JCFLAGS) -d $(CLASSDIR) Analyzer.java
+
+LocalSessionManager.class: LocalSessionManager.java
+		$(JC) $(JCFLAGS) -d $(CLASSDIR) LocalSessionManager.java
+
 Questioner.class: Questioner.java
 		$(JC) $(JCFLAGS) -d $(CLASSDIR) Questioner.java
 
