@@ -5,7 +5,7 @@ JFLAGS  = -g -Wall
 JCFLAGS = -g
 CLASSDIR = classes
 
-default: Questioner.class
+default: LocalSessionManager.class
 
 Analyzer.class: Analyzer.java
 		$(JC) $(JCFLAGS) -d $(CLASSDIR) Analyzer.java
@@ -26,7 +26,7 @@ McQuestion.class: McQuestion.java
 		$(JC) $(JCFLAGS) -d $(CLASSDIR) McQuestion.java
 		
 run:
-		java -cp $(CLASSDIR) Questioner
+		java -cp $(CLASSDIR) LocalSessionManager
 		$(MAKE) clean
 
 clean:
