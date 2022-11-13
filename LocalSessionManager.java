@@ -1,21 +1,29 @@
+import java.io.FileNotFoundException;
 import java.io.File;
 
 class LocalSessionManager {
 
-    private final Questioner q;
+    private static final Questioner q;
     private static final McQuestionLoader mcql;
+    private Question[] questionSet;
+
+    static {
+        mcql = new McQuestionLoader();
+        q = new Questioner();
+    };
+
+    {
+        try {
+            questionSet = mcql.loadFromJSON(getQuestionSet());
+            q.loadQuestions(questionSet);
+        } catch (FileNotFoundException e) {}
+    };
     
 
     // XXX: should a SessionManager manage multiple local sessions?
     // probably not
     public LocalSessionManager() {
-        McQuestionLoader mcql = new McQuestionLoader();
-        try {
-            Question[] questionSet = mcql.loadFromJSON(this.getQuestionSet());
-        } catch (FileNotFoundException e) {
-        }
         
-        this.q = new Questioner(questionSet);
     }
     // TODO: get a set of questions from a QuestionLoader
 
@@ -24,7 +32,7 @@ class LocalSessionManager {
 
     // TODO: prompt session beginning
     // TODO: allow choose a question set (file) (QuestionLoader func)
-    public File getQuestionSet() {
+    public static File getQuestionSet() {
         return new File("loadfiles/testquestionset.json");
 
     }
