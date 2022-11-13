@@ -33,14 +33,18 @@ class LocalSessionManager {
     public static String getQuestionSet() {
         // call loadQuestionSet() here
         return new String("");
-
     }
 
     // TODO: load that set of questions into a Questioner
     // (that Questioner comes with an Analyzer)
 
-    // TODO: prompt session beginning
     // TODO: allow choose a question set (file) (QuestionLoader func)
+    // TODO: prompt session beginning
+
+    public void startQuiz() {
+        q.askQuestions();
+
+    }
 
 
     public static void main(String[] args) {
@@ -49,6 +53,8 @@ class LocalSessionManager {
         lsm.loadQuestionSet("loadfiles/testquestionset.json");
         } catch (FileNotFoundException e) {
         }
+        lsm.startQuiz();
+
 
     }
 

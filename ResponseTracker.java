@@ -18,15 +18,27 @@ class ResponseTracker {
             return false;
         }
     }
-
-    //public int[] getResponses();
+    
+    public void getResponse() {
+        Scanner responseScanner = new Scanner(System.in);
+        log(q.getPromptAndAnswers());
+        System.out.println("Enter your answer:");
+        char rangeStart = 'a';
+        char rangeEnd = (char) ((int) rangeStart + q.getPossibleAnswersArray().length - 1);
+        char response = '0';
+        response = responseScanner.next().charAt(0);
+        while (!((response >= rangeStart) && (response <= rangeEnd))) {
+        log(String.format("Enter a letter %c - %c", rangeStart, rangeEnd));
+        response = responseScanner.next().charAt(0);
+        }
+        
+    }
 
     public static void main(String[] args) {
         String testPrompt = "Test question:";
         String[] testAnswers = {"answer 1", "answer 2", "answer 3", "answer 4", "answer 5"};
         McQuestion testQuestion = new McQuestion(testPrompt, testAnswers, 1);
         ResponseTracker testResponses = new ResponseTracker(testQuestion);
-
     }
 
     public static void log(String s) {

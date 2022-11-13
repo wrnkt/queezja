@@ -31,6 +31,13 @@ class Questioner {
         this.trackerList = trackerArrList.toArray(new ResponseTracker[trackerArrList.size()]);
     }
 
+    public void askQuestions() {
+        for (ResponseTracker rt: trackerList) {
+            rt.getResponse();
+
+        }
+    }
+
     /*
     public Questioner(ArrayList<ResponseTracker> rt) {
        // Questioner(ArrayList<ResponseTracker>) and Questioner(ArrayList<Question>) have the same erasure 

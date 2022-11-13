@@ -4,6 +4,8 @@ interface Question {
     public String getPromptAndAnswers();
     public String getAnswerByIdx(int index);
 
+    public String[] getPossibleAnswersArray();
+
     public int[] getCorrectAnswerIdx();
     public boolean isCorrectAnswer(int index);
     public String[] getCorrectAnswers();

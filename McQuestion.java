@@ -20,6 +20,10 @@ class McQuestion implements Question {
         return questionPrompt;
     }
 
+    public String[] getPossibleAnswersArray() {
+        return possibleAnswers;
+    }
+
     public String getAnswerByIdx(int index) {
         char answerPrefix = 'a';
         return (char)(answerPrefix + index) + ") " + possibleAnswers[index];
