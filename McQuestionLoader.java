@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.io.File;
 import java.io.FileNotFoundException;
 
@@ -10,7 +11,7 @@ class McQuestionLoader implements QuestionLoader {
     public static McQuestion[] loadFromTextFile(File f) throws FileNotFoundException {
 
         ArrayList<McQuestion> questionArrayList = new ArrayList<McQuestion>();
-        String[] answers = {"answer 1", "answer 2"};
+        ArrayList<String> answers = new ArrayList<>(Arrays.asList("answer 1", "answer 2"));
         McQuestion q1 = new McQuestion("Test question 1", answers, 0);
         McQuestion q2 = new McQuestion("Test question 2", answers, 0);
         McQuestion q3 = new McQuestion("Test question 3", answers, 0);
@@ -24,7 +25,7 @@ class McQuestionLoader implements QuestionLoader {
     public static McQuestion[] loadFromJSON(File f) throws FileNotFoundException {
 
         ArrayList<McQuestion> questionArrayList = new ArrayList<McQuestion>();
-        String[] answers = {"answer 1", "answer 2"};
+        ArrayList<String> answers = new ArrayList<>(Arrays.asList("answer 1", "answer 2"));
         McQuestion q1 = new McQuestion("Test question 1", answers, 0);
         McQuestion q2 = new McQuestion("Test question 2", answers, 1);
         McQuestion q3 = new McQuestion("Test question 3", answers, 1);

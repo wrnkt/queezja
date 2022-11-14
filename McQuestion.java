@@ -3,14 +3,14 @@ import java.util.ArrayList;
 
 class McQuestion implements Question {
     private final String questionPrompt;
-    private final String[] possibleAnswers;
+    private final ArrayList<String> possibleAnswers;
     private final int[] correctAnswerIdx;
 
-    public McQuestion(String questionPrompt, String[] possibleAnswers, int... correctAnswerIdx) throws IllegalArgumentException {
+    public McQuestion(String questionPrompt, ArrayList<String> possibleAnswers, int... correctAnswerIdx) throws IllegalArgumentException {
         this.questionPrompt = questionPrompt;
         this.possibleAnswers = possibleAnswers;
         for(int i: correctAnswerIdx) {
-            if(i > (possibleAnswers.length - 1))
+            if(i > (possibleAnswers.size() - 1))
                 throw new IllegalArgumentException("correctAnswerIdx is not in the range of possible answers.");
         }
         this.correctAnswerIdx = correctAnswerIdx;
@@ -20,18 +20,19 @@ class McQuestion implements Question {
         return questionPrompt;
     }
 
-    public String[] getPossibleAnswersArray() {
-        return possibleAnswers;
+    public ArrayList<String> getPossibleAnswersArrayList() {
+        ArrayList<String> returnArrayList = possibleAnswers;
+        return returnArrayList;
     }
 
     public String getAnswerByIdx(int index) {
         char answerPrefix = 'a';
-        return (char)(answerPrefix + index) + ") " + possibleAnswers[index];
+        return (char)(answerPrefix + index) + ") " + possibleAnswers.get(index);
     }
 
     public String getPossibleAnswers() {
         String answerList = "";
-        for(int i = 0; i < possibleAnswers.length; i++) {
+        for(int i = 0; i < possibleAnswers.size(); i++) {
             answerList += getAnswerByIdx(i) + '\n';
         }
         return answerList;
@@ -61,7 +62,7 @@ class McQuestion implements Question {
 
     public static void main(String[] args) {
         String testPrompt = "Test question:";
-        String[] testAnswers = {"answer 1", "answer 2", "answer 3", "answer 4", "answer 5"};
+        ArrayList<String> testAnswers = new ArrayList<>(Arrays.asList("answer 1", "answer 2", "answer 3", "answer 4", "answer 5"));
         McQuestion testQuestion = new McQuestion(testPrompt, testAnswers, 1);
         log(testQuestion.getPromptAndAnswers());
         // log(Arrays.toString(testQuestion.getCorrectAnswers()));

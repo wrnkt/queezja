@@ -2,7 +2,7 @@ JC = javac
 
 JFLAGS  = -g -Wall
 
-JCFLAGS = -g
+JCFLAGS = -g -Xlint:unchecked
 CLASSDIR = classes
 
 default: LocalSessionManager.class
