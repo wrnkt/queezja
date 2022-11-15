@@ -1,6 +1,6 @@
 import java.io.File;
 
-interface QuestionLoader {
+abstract class QuestionLoader {
 
     // public Question[] loadMultipleQuestion(File f);
 
