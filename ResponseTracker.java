@@ -5,9 +5,9 @@ import java.util.Arrays;
 class ResponseTracker {
 
     private ArrayList<Integer> responses;
-    private final Question q;
+    private final McQuestion q;
 
-    public ResponseTracker(Question q) {
+    public ResponseTracker(McQuestion q) {
         this.q = q;
         this.responses = new ArrayList<Integer>();
     }
