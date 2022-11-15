@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.ArrayList;
 
-class McQuestion implements Question {
+class McQuestion extends Question {
     private final String questionPrompt;
     private final ArrayList<String> possibleAnswers;
     private final int[] correctAnswerIdx;

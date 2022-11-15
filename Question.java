@@ -1,15 +1,19 @@
 import java.util.ArrayList;
 
-interface Question {
-    public String getQuestionPrompt();
-    public String getPossibleAnswers();
-    public String getPromptAndAnswers();
-    public String getAnswerByIdx(int index);
+abstract class Question {
+    private String questionPrompt;
+    private ArrayList<String> possibleAnswers;
+    private int[] correctAnswerIdx;
 
-    public ArrayList<String> getPossibleAnswersArrayList();
+    public abstract String getQuestionPrompt();
+    public abstract String getPossibleAnswers();
+    public abstract String getPromptAndAnswers();
+    public abstract String getAnswerByIdx(int index);
 
-    public int[] getCorrectAnswerIdx();
-    public boolean isCorrectAnswer(int index);
-    public String[] getCorrectAnswers();
+    public abstract ArrayList<String> getPossibleAnswersArrayList();
+
+    public abstract int[] getCorrectAnswerIdx();
+    public abstract boolean isCorrectAnswer(int index);
+    public abstract String[] getCorrectAnswers();
 
 }
