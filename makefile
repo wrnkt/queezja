@@ -6,28 +6,28 @@ JCFLAGS = -g -Xlint:unchecked
 CLASSDIR = classes
 CLASSPATH = .:./classes:./jsonclasses
 
-default: LocalSessionManager.class
+default: LocalSessionManager.class ResponseTracker.class
 
 Analyzer.class: Analyzer.java
-		$(JC) $(JCFLAGS) -d $(CLASSDIR) Analyzer.java
+	$(JC) $(JCFLAGS) -classpath $(CLASSPATH) -d $(CLASSDIR) Analyzer.java
 
-LocalSessionManager.class: LocalSessionManager.java 
+LocalSessionManager.class: LocalSessionManager.java
 	$(JC) $(JCFLAGS) -classpath $(CLASSPATH) -d $(CLASSDIR) LocalSessionManager.java
 
 Questioner.class: Questioner.java
-		$(JC) $(JCFLAGS) -d $(CLASSDIR) Questioner.java
+	$(JC) $(JCFLAGS) -classpath $(CLASSPATH) -d $(CLASSDIR) Questioner.java
 
 ResponseTracker.class: ResponseTracker.java
-		$(JC) $(JCFLAGS) -d $(CLASSDIR) ResponseTracker.java
+	$(JC) $(JCFLAGS) -classpath $(CLASSPATH) -d $(CLASSDIR) ResponseTracker.java
 
 McQuestionLoader.class: McQuestionLoader.java
-		$(JC) $(JCFLAGS) -d $(CLASSDIR) McQuestionLoader.java
+	$(JC) $(JCFLAGS) -classpath $(CLASSPATH) -d $(CLASSDIR) McQuestionLoader.java
 
 McQuestion.class: McQuestion.java
-		$(JC) $(JCFLAGS) -d $(CLASSDIR) McQuestion.java
+	$(JC) $(JCFLAGS) -classpath $(CLASSPATH) -d $(CLASSDIR) McQuestion.java
 		
 run:
-	java -cp $(CLASSDIR) -classpath $(CLASSPATH) LocalSessionManager
+	java -classpath $(CLASSPATH) LocalSessionManager
 		$(MAKE) clean
 
 clean:
