@@ -14,6 +14,6 @@ abstract class Question {
 
     public abstract int[] getCorrectAnswerIdx();
     public abstract boolean isCorrectAnswer(int index);
-    public abstract String[] getCorrectAnswers();
+    public abstract ArrayList<String> getCorrectAnswers();
 
 }

@@ -47,12 +47,12 @@ class McQuestion extends Question {
     }
 
 
-    public String[] getCorrectAnswers() {
+    public ArrayList<String> getCorrectAnswers() {
         ArrayList<String> answers = new ArrayList<String>();
         for (int i: correctAnswerIdx) {
             answers.add(getAnswerByIdx(i));
         }
-        return answers.toArray(new String[0]);
+        return answers;
     }
 
     public String getPromptAndAnswers() {
@@ -65,7 +65,7 @@ class McQuestion extends Question {
         ArrayList<String> testAnswers = new ArrayList<>(Arrays.asList("answer 1", "answer 2", "answer 3", "answer 4", "answer 5"));
         McQuestion testQuestion = new McQuestion(testPrompt, testAnswers, 1);
         log(testQuestion.getPromptAndAnswers());
-        // log(Arrays.toString(testQuestion.getCorrectAnswers()));
+        // log(testQuestion.getCorrectAnswers());
     }
 
     public static void log(String s) {
