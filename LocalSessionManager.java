@@ -5,11 +5,11 @@ import java.io.File;
 
 class LocalSessionManager {
 
-    private static final Questioner q;
-    private static final McQuestionLoader mcql;
+    private final Questioner q;
+    private final McQuestionLoader mcql;
     private ArrayList<McQuestion> questionSet;
 
-    static {
+    {
         mcql = new McQuestionLoader();
         q = new Questioner();
     };
