@@ -1,13 +1,11 @@
-{
-    "questions":[
-        {
-            "prompt": "Select an answer to question 1:",
-            "choices": [
-                "answer 1",
-                "answer 2",
-                "answer 3",
-                "answer 4"],
-            "answeridx":[0]
-        }
-    ]
-}
+[
+    {
+        "prompt": "Select an answer to question 1:",
+        "choices": [
+            "answer 1",
+            "answer 2",
+            "answer 3",
+            "answer 4"],
+        "answeridx":[0]
+    }
+]
