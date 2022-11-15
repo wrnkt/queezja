@@ -8,7 +8,8 @@ class McQuestionLoader implements QuestionLoader {
     public McQuestionLoader() {
     }
      
-    public static McQuestion[] loadFromTextFile(File f) throws FileNotFoundException {
+    public static ArrayList<McQuestion> loadFromTextFile(File f) throws FileNotFoundException {
+        // TODO: implement load from text file
 
         ArrayList<McQuestion> questionArrayList = new ArrayList<McQuestion>();
         ArrayList<String> answers = new ArrayList<>(Arrays.asList("answer 1", "answer 2"));
@@ -18,11 +19,12 @@ class McQuestionLoader implements QuestionLoader {
         questionArrayList.add(q1);
         questionArrayList.add(q2);
         questionArrayList.add(q3);
-        return questionArrayList.toArray(new McQuestion[questionArrayList.size()]);
+        return questionArrayList;
 
     }
 
-    public static McQuestion[] loadFromJSON(File f) throws FileNotFoundException {
+    // TODO: implement load from JSON file
+    public static ArrayList<McQuestion> loadFromJSON(File f) throws FileNotFoundException {
 
         ArrayList<McQuestion> questionArrayList = new ArrayList<McQuestion>();
         ArrayList<String> answers = new ArrayList<>(Arrays.asList("answer 1", "answer 2"));
@@ -32,7 +34,7 @@ class McQuestionLoader implements QuestionLoader {
         questionArrayList.add(q1);
         questionArrayList.add(q2);
         questionArrayList.add(q3);
-        return questionArrayList.toArray(new McQuestion[questionArrayList.size()]);
+        return questionArrayList;
     }
 
     public static void main(String[] args) {

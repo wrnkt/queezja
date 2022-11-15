@@ -1,12 +1,13 @@
 import java.io.FileNotFoundException;
 import java.util.Arrays;
+import java.util.ArrayList;
 import java.io.File;
 
 class LocalSessionManager {
 
     private static final Questioner q;
     private static final McQuestionLoader mcql;
-    private Question[] questionSet;
+    private ArrayList<McQuestion> questionSet;
 
     static {
         mcql = new McQuestionLoader();

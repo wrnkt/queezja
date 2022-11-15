@@ -23,7 +23,7 @@ class Questioner {
     public Questioner() {
     }
 
-    public void loadQuestions(Question[] questionList) {
+    public void loadQuestions(ArrayList<McQuestion> questionList) {
         ArrayList<ResponseTracker> trackerArrList = new ArrayList<ResponseTracker>();
         for(Question q: questionList) {
             trackerArrList.add(new ResponseTracker(q));
