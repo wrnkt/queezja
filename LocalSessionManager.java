@@ -24,7 +24,7 @@ class LocalSessionManager {
             questionSet = mcql.loadFromTextFile(new File(path));
         } else {
             // ERROR
-
+            System.out.println("[ERROR]: Unsupported file format.");
         }
         q.loadQuestions(questionSet);
     }
