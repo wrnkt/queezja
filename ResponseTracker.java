@@ -9,6 +9,7 @@ class ResponseTracker {
 
     public ResponseTracker(Question q) {
         this.q = q;
+        this.responses = new ArrayList<Integer>();
     }
 
     public boolean isCorrectResponse(int index) {
@@ -32,7 +33,7 @@ class ResponseTracker {
         log(String.format("Enter a letter %c - %c", rangeStart, rangeEnd));
         response = responseScanner.next().charAt(0);
         }
-        
+        this.isCorrectResponse(response);
     }
 
     public static void main(String[] args) {
