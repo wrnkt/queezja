@@ -12,7 +12,8 @@ class Questioner
     public Questioner(ArrayList<McQuestion> questionList)
     {
         ArrayList<ResponseTracker> trackerArrList = new ArrayList<ResponseTracker>();
-        for(McQuestion q: questionList) {
+        for(McQuestion q: questionList)
+        {
             trackerArrList.add(new ResponseTracker(q));
         }
         this.trackerList = trackerArrList.toArray(new ResponseTracker[trackerArrList.size()]);
@@ -21,7 +22,8 @@ class Questioner
     public Questioner(McQuestion[] questionList)
     {
         ArrayList<ResponseTracker> trackerArrList = new ArrayList<ResponseTracker>();
-        for(McQuestion q: questionList) {
+        for(McQuestion q: questionList)
+        {
             trackerArrList.add(new ResponseTracker(q));
         }
         this.trackerList = trackerArrList.toArray(new ResponseTracker[trackerArrList.size()]);
@@ -30,7 +32,8 @@ class Questioner
     public void loadQuestions(ArrayList<McQuestion> questionList)
     {
         ArrayList<ResponseTracker> trackerArrList = new ArrayList<ResponseTracker>();
-        for(McQuestion q: questionList) {
+        for(McQuestion q: questionList)
+        {
             trackerArrList.add(new ResponseTracker(q));
         }
         this.trackerList = trackerArrList.toArray(new ResponseTracker[trackerArrList.size()]);
@@ -38,9 +41,9 @@ class Questioner
 
     public void askQuestions()
     {
-        for (ResponseTracker rt: trackerList) {
+        for (ResponseTracker rt: trackerList)
+        {
             rt.getResponse();
-
         }
     }
 

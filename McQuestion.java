@@ -14,7 +14,8 @@ class McQuestion extends Question
 
         this.questionPrompt = questionPrompt;
         this.possibleAnswers = possibleAnswers;
-        for (int i: correctAnswerIdx) {
+        for (int i: correctAnswerIdx)
+        {
             if (i > (possibleAnswers.size() - 1))
                 throw new IllegalArgumentException("correctAnswerIdx is not in the range of possible answers.");
         }
@@ -41,7 +42,8 @@ class McQuestion extends Question
     public String getPossibleAnswers()
     {
         String answerList = "";
-        for(int i = 0; i < possibleAnswers.size(); i++) {
+        for(int i = 0; i < possibleAnswers.size(); i++)
+        {
             answerList += getAnswerByIdx(i) + '\n';
         }
         return answerList;
@@ -60,7 +62,8 @@ class McQuestion extends Question
     public ArrayList<String> getCorrectAnswers()
     {
         ArrayList<String> answers = new ArrayList<String>();
-        for (int i: correctAnswerIdx) {
+        for (int i: correctAnswerIdx)
+        {
             answers.add(getAnswerByIdx(i));
         }
         return answers;

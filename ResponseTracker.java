@@ -17,9 +17,12 @@ class ResponseTracker
     public boolean isCorrectResponse(int index)
     {
         responses.add(index);
-        if (q.isCorrectAnswer(index)) {
+        if (q.isCorrectAnswer(index))
+        {
             return true;
-        } else {
+        }
+        else
+        {
             return false;
         }
     }
@@ -36,7 +39,8 @@ class ResponseTracker
         char response = '0';
         response = responseScanner.next().charAt(0);
 
-        while (!((response >= rangeStart) && (response <= rangeEnd))) {
+        while (!((response >= rangeStart) && (response <= rangeEnd)))
+        {
             System.out.println(String.format("Enter a letter %c - %c", rangeStart, rangeEnd));
             response = responseScanner.next().charAt(0);
         }

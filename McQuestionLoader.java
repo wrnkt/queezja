@@ -24,25 +24,29 @@ class McQuestionLoader extends QuestionLoader
     {
 
         StringBuilder fileData = new StringBuilder();
-        BufferedReader reader = new BufferedReader(
-                new FileReader(f));
+        BufferedReader reader = new BufferedReader(new FileReader(f));
+
         char[] buffer = new char[1024];
         int numRead = 0;
-        while((numRead = reader.read(buffer)) != -1) {
+        while((numRead = reader.read(buffer)) != -1)
+        {
             String readData = String.valueOf(buffer, 0, numRead);
             fileData.append(readData);
         }
         reader.close();
+
         return fileData.toString();
     }
 
     public static ArrayList<McQuestion> loadFromTextFile(File f) throws FileNotFoundException
     {
-        try {
+        try
+        {
             String fileContent = readFileToString(f);
             JSONArray a = new JSONArray(fileContent);
 
-            for(Object o : a) {
+            for(Object o : a)
+            {
                 JSONObject question = (JSONObject) o;
 
                 String prompt = (String) question.get("prompt");
@@ -63,7 +67,9 @@ class McQuestionLoader extends QuestionLoader
                 */
             }
 
-        } catch (IOException e) {
+        }
+        catch (IOException e)
+        {
             System.out.println("[ERROR]: Could not read file.");
         }
 
@@ -88,34 +94,40 @@ class McQuestionLoader extends QuestionLoader
     {
         ArrayList<McQuestion> questionArrayList = new ArrayList<McQuestion>();
 
-        try {
-
+        try
+        {
             String fileContent = readFileToString(f);
             JSONArray a = new JSONArray(fileContent);
 
-            for(Object o : a) {
+            for(Object o : a)
+            {
                 JSONObject question = (JSONObject) o;
 
                 String prompt = (String) question.get("prompt");
 
                 JSONArray choices = (JSONArray) question.get("choices");
                 ArrayList<String> answerChoices = new ArrayList<>();
-                for (Object choice : choices) {
+                for (Object choice : choices)
+                {
                      answerChoices.add(choice.toString());
                 }
 
                 JSONArray answeridx = (JSONArray) question.get("answeridx");
                 ArrayList<Integer> answerIdxArrayList = new ArrayList<>();
-                for (Object idx : answeridx) {
+                for (Object idx : answeridx)
+                {
                     answerIdxArrayList.add(Integer.parseInt(idx.toString()));
                 }
+
                 int[] answerIndexes = answerIdxArrayList.stream().mapToInt(i -> i).toArray();
 
                 McQuestion q = new McQuestion(prompt, answerChoices, answerIndexes);
                 questionArrayList.add(q);
             }
 
-        } catch (IOException e) {
+        }
+        catch (IOException e)
+        {
             System.out.println("[ERROR]: Could not read file.");
         }
 
@@ -124,15 +136,21 @@ class McQuestionLoader extends QuestionLoader
 
     public static ArrayList<McQuestion> getQuestionSetFromQuestionSetFile(String path) throws FileNotFoundException
     {
-
         ArrayList<McQuestion> questionSet = new ArrayList<>();
-        if (path.endsWith(".json")) {
+
+        if (path.endsWith(".json"))
+        {
             questionSet = loadFromJSON(new File(path));
-        } else if (path.endsWith(".txt")) {
+        }
+        else if (path.endsWith(".txt"))
+        {
             questionSet = loadFromTextFile(new File(path));
-        } else {
+        }
+        else
+        {
             System.out.println("[ERROR]: Unsupported file format.");
         }
+
         return questionSet;
     }
 

@@ -29,9 +29,12 @@ class LocalSessionManager
     {
         // TODO: prompt user for file path
         String filePath = "loadfiles/testquestionset.json";
-        try {
+        try
+        {
             loadQuestionSet(filePath);
-        } catch (FileNotFoundException e) {
+        }
+        catch (FileNotFoundException e)
+        {
             System.out.println(String.format("[ERROR]: %s not found.", filePath));
         }
 
