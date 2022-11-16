@@ -86,6 +86,7 @@ class McQuestionLoader extends QuestionLoader
     // TODO: implement load from JSON file
     public static ArrayList<McQuestion> loadFromJSON(File f) throws FileNotFoundException
     {
+        ArrayList<McQuestion> questionArrayList = new ArrayList<McQuestion>();
 
         try {
 
@@ -96,37 +97,27 @@ class McQuestionLoader extends QuestionLoader
                 JSONObject question = (JSONObject) o;
 
                 String prompt = (String) question.get("prompt");
-                System.out.println(prompt);
 
-                /*
                 JSONArray choices = (JSONArray) question.get("choices");
-                Iterator<String> choicesIterator = choices.iterator();
-                while (choicesIterator.hasNext()) {
-                         System.out.println(choicesIterator.next());
+                ArrayList<String> answerChoices = new ArrayList<>();
+                for (Object choice : choices) {
+                     answerChoices.add(choice.toString());
                 }
 
                 JSONArray answeridx = (JSONArray) question.get("answeridx");
-                Iterator<String> idxIterator = answeridx.iterator();
-                while (idxIterator.hasNext()) {
-                         System.out.println(idxIterator.next());
+                ArrayList<Integer> answerIdxArrayList = new ArrayList<>();
+                for (Object idx : answeridx) {
+                    answerIdxArrayList.add(Integer.parseInt(idx.toString()));
                 }
-                */
+                int[] answerIndexes = answerIdxArrayList.stream().mapToInt(i -> i).toArray();
+
+                McQuestion q = new McQuestion(prompt, answerChoices, answerIndexes);
+                questionArrayList.add(q);
             }
 
         } catch (IOException e) {
             System.out.println("[ERROR]: Could not read file.");
         }
-        
-        ArrayList<McQuestion> questionArrayList = new ArrayList<McQuestion>();
-        ArrayList<String> answers = new ArrayList<>(Arrays.asList("answer 1", "answer 2"));
-        
-        McQuestion q1 = new McQuestion("Test question 1", answers, 0);
-        McQuestion q2 = new McQuestion("Test question 2", answers, 1);
-        McQuestion q3 = new McQuestion("Test question 3", answers, 1);
-
-        questionArrayList.add(q1);
-        questionArrayList.add(q2);
-        questionArrayList.add(q3);
 
         return questionArrayList;
     }
