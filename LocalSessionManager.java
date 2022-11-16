@@ -23,10 +23,14 @@ class LocalSessionManager {
         q.loadQuestions(questionSet);
     }
 
-    // TODO: get user question set/file input
-    // path or file ?
-    public static String getQuestionSet() {
-        // call loadQuestionSet() here
+    public String getQuestionSet() {
+        // TODO: prompt user for file path
+        String filePath = "loadfiles/testquestionset.json";
+        try {
+            loadQuestionSet(filePath);
+        } catch (FileNotFoundException e) {
+            System.out.println(String.format("[ERROR]: %s not found.", filePath));
+        }
         return new String("");
     }
 
@@ -44,10 +48,7 @@ class LocalSessionManager {
 
     public static void main(String[] args) {
         LocalSessionManager lsm = new LocalSessionManager();
-        try {
-        lsm.loadQuestionSet("loadfiles/testquestionset.json");
-        } catch (FileNotFoundException e) {
-        }
+        lsm.getQuestionSet();
         lsm.startQuiz();
 
 
