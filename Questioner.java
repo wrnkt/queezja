@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 class Questioner
 {
@@ -11,22 +12,13 @@ class Questioner
 
     public Questioner(ArrayList<McQuestion> questionList)
     {
-        ArrayList<ResponseTracker> trackerArrList = new ArrayList<ResponseTracker>();
-        for(McQuestion q: questionList)
-        {
-            trackerArrList.add(new ResponseTracker(q));
-        }
-        this.trackerList = trackerArrList.toArray(new ResponseTracker[trackerArrList.size()]);
+        loadQuestions(questionList);
     }
 
-    public Questioner(McQuestion[] questionList)
+    public Questioner(McQuestion[] questionArray)
     {
-        ArrayList<ResponseTracker> trackerArrList = new ArrayList<ResponseTracker>();
-        for(McQuestion q: questionList)
-        {
-            trackerArrList.add(new ResponseTracker(q));
-        }
-        this.trackerList = trackerArrList.toArray(new ResponseTracker[trackerArrList.size()]);
+        ArrayList<McQuestion> questionList = (ArrayList<McQuestion>) Arrays.asList(questionArray);
+        loadQuestions(questionList);
     }
 
     public void loadQuestions(ArrayList<McQuestion> questionList)

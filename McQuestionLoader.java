@@ -40,8 +40,7 @@ class McQuestionLoader extends QuestionLoader
 
     public static ArrayList<McQuestion> loadFromTextFile(File f) throws FileNotFoundException
     {
-        try
-        {
+        try {
             String fileContent = readFileToString(f);
             JSONArray a = new JSONArray(fileContent);
 
@@ -67,12 +66,9 @@ class McQuestionLoader extends QuestionLoader
                 */
             }
 
-        }
-        catch (IOException e)
-        {
+        } catch (IOException e) {
             System.out.println("[ERROR]: Could not read file.");
         }
-
 
         ArrayList<McQuestion> questionArrayList = new ArrayList<McQuestion>();
         ArrayList<String> answers = new ArrayList<>(Arrays.asList("answer 1", "answer 2"));
@@ -94,8 +90,7 @@ class McQuestionLoader extends QuestionLoader
     {
         ArrayList<McQuestion> questionArrayList = new ArrayList<McQuestion>();
 
-        try
-        {
+        try {
             String fileContent = readFileToString(f);
             JSONArray a = new JSONArray(fileContent);
 
@@ -125,9 +120,7 @@ class McQuestionLoader extends QuestionLoader
                 questionArrayList.add(q);
             }
 
-        }
-        catch (IOException e)
-        {
+        } catch (IOException e) {
             System.out.println("[ERROR]: Could not read file.");
         }
 

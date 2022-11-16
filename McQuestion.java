@@ -11,12 +11,12 @@ class McQuestion extends Question
     public McQuestion(String questionPrompt, ArrayList<String> possibleAnswers, int... correctAnswerIdx)
             throws IllegalArgumentException
     {
-
         this.questionPrompt = questionPrompt;
         this.possibleAnswers = possibleAnswers;
-        for (int i: correctAnswerIdx)
+
+        for (int idx: correctAnswerIdx)
         {
-            if (i > (possibleAnswers.size() - 1))
+            if (idx > (possibleAnswers.size() - 1))
                 throw new IllegalArgumentException("correctAnswerIdx is not in the range of possible answers.");
         }
         this.correctAnswerIdx = correctAnswerIdx;
