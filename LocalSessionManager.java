@@ -17,7 +17,6 @@ class LocalSessionManager {
     public LocalSessionManager() {
     }
 
-    // TODO: get a set of questions from a QuestionLoader
     public void loadQuestionSet(String path) throws FileNotFoundException {
         questionSet = mcql.getQuestionSetFromQuestionSetFile(path);
         q.loadQuestions(questionSet);
@@ -34,24 +33,14 @@ class LocalSessionManager {
         return new String("");
     }
 
-    // TODO: load that set of questions into a Questioner
-    // (that Questioner comes with an Analyzer)
-
-    // TODO: allow choose a question set (file) (QuestionLoader func)
-    // TODO: prompt session beginning
-
     public void startQuiz() {
         q.askQuestions();
-
     }
-
 
     public static void main(String[] args) {
         LocalSessionManager lsm = new LocalSessionManager();
         lsm.getQuestionSet();
         lsm.startQuiz();
-
-
     }
 
 }
