@@ -54,9 +54,15 @@ class McQuestion extends Question
         return correctAnswerIdx;
     }
 
-    public boolean isCorrectAnswer(int index)
+    public boolean isCorrectAnswer(int checkIndex)
     {
-        return Arrays.asList(correctAnswerIdx).contains(index);
+        for (int index : correctAnswerIdx)
+        {
+            if (index == checkIndex) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public ArrayList<String> getCorrectAnswers()

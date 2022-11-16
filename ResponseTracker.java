@@ -44,8 +44,13 @@ class ResponseTracker
             System.out.println(String.format("Enter a letter %c - %c", rangeStart, rangeEnd));
             response = responseScanner.next().charAt(0);
         }
+        int respIndex = (int) (response - rangeStart);
 
-        isCorrectResponse(response);
+        if (isCorrectResponse(respIndex)) {
+            System.out.println("Correct!");
+        } else {
+            System.out.println("Incorrect.");
+        }
     }
 
     public static void main(String[] args)

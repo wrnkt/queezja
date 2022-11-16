@@ -117,6 +117,10 @@ class McQuestionLoader extends QuestionLoader
                 int[] answerIndexes = answerIdxArrayList.stream().mapToInt(i -> i).toArray();
 
                 McQuestion q = new McQuestion(prompt, answerChoices, answerIndexes);
+
+                // print content being loaded
+                // q.questionLog();
+
                 questionArrayList.add(q);
             }
 
