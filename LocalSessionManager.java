@@ -3,7 +3,8 @@ import java.util.Arrays;
 import java.util.ArrayList;
 import java.io.File;
 
-class LocalSessionManager {
+class LocalSessionManager
+{
 
     private final Questioner q;
     private final McQuestionLoader mcql;
@@ -14,15 +15,18 @@ class LocalSessionManager {
         q = new Questioner();
     };
 
-    public LocalSessionManager() {
+    public LocalSessionManager()
+    {
     }
 
-    public void loadQuestionSet(String path) throws FileNotFoundException {
+    public void loadQuestionSet(String path) throws FileNotFoundException
+    {
         questionSet = mcql.getQuestionSetFromQuestionSetFile(path);
         q.loadQuestions(questionSet);
     }
 
-    public String getQuestionSet() {
+    public String getQuestionSet()
+    {
         // TODO: prompt user for file path
         String filePath = "loadfiles/testquestionset.json";
         try {
@@ -30,14 +34,17 @@ class LocalSessionManager {
         } catch (FileNotFoundException e) {
             System.out.println(String.format("[ERROR]: %s not found.", filePath));
         }
+
         return new String("");
     }
 
-    public void startQuiz() {
+    public void startQuiz()
+    {
         q.askQuestions();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         LocalSessionManager lsm = new LocalSessionManager();
         lsm.getQuestionSet();
         lsm.startQuiz();

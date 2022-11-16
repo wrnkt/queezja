@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
-abstract class Question {
+abstract class Question
+{
     private String questionPrompt;
     private ArrayList<String> possibleAnswers;
     private int[] correctAnswerIdx;

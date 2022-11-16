@@ -13,12 +13,16 @@ import org.json.JSONObject;
 import org.json.JSONString;
 
 
-class McQuestionLoader extends QuestionLoader {
+class McQuestionLoader extends QuestionLoader
+{
 
-    public McQuestionLoader() {
+    public McQuestionLoader()
+    {
     }
      
-    public static String readFileToString(File f) throws FileNotFoundException, IOException {
+    public static String readFileToString(File f) throws FileNotFoundException, IOException
+    {
+
         StringBuilder fileData = new StringBuilder();
         BufferedReader reader = new BufferedReader(
                 new FileReader(f));
@@ -32,11 +36,12 @@ class McQuestionLoader extends QuestionLoader {
         return fileData.toString();
     }
 
-    public static ArrayList<McQuestion> loadFromTextFile(File f) throws FileNotFoundException {
-        // TODO: implement load from text file
+    public static ArrayList<McQuestion> loadFromTextFile(File f) throws FileNotFoundException
+    {
         try {
             String fileContent = readFileToString(f);
             JSONArray a = new JSONArray(fileContent);
+
             for(Object o : a) {
                 JSONObject question = (JSONObject) o;
 
@@ -56,8 +61,8 @@ class McQuestionLoader extends QuestionLoader {
                          System.out.println(idxIterator.next());
                 }
                 */
-
             }
+
         } catch (IOException e) {
             System.out.println("[ERROR]: Could not read file.");
         }
@@ -65,22 +70,28 @@ class McQuestionLoader extends QuestionLoader {
 
         ArrayList<McQuestion> questionArrayList = new ArrayList<McQuestion>();
         ArrayList<String> answers = new ArrayList<>(Arrays.asList("answer 1", "answer 2"));
+
         McQuestion q1 = new McQuestion("Test question 1", answers, 0);
         McQuestion q2 = new McQuestion("Test question 2", answers, 0);
         McQuestion q3 = new McQuestion("Test question 3", answers, 0);
+
         questionArrayList.add(q1);
         questionArrayList.add(q2);
         questionArrayList.add(q3);
+
         return questionArrayList;
 
     }
 
     // TODO: implement load from JSON file
-    public static ArrayList<McQuestion> loadFromJSON(File f) throws FileNotFoundException {
+    public static ArrayList<McQuestion> loadFromJSON(File f) throws FileNotFoundException
+    {
 
         try {
+
             String fileContent = readFileToString(f);
             JSONArray a = new JSONArray(fileContent);
+
             for(Object o : a) {
                 JSONObject question = (JSONObject) o;
 
@@ -100,55 +111,42 @@ class McQuestionLoader extends QuestionLoader {
                          System.out.println(idxIterator.next());
                 }
                 */
-
             }
+
         } catch (IOException e) {
             System.out.println("[ERROR]: Could not read file.");
         }
         
         ArrayList<McQuestion> questionArrayList = new ArrayList<McQuestion>();
         ArrayList<String> answers = new ArrayList<>(Arrays.asList("answer 1", "answer 2"));
+        
         McQuestion q1 = new McQuestion("Test question 1", answers, 0);
         McQuestion q2 = new McQuestion("Test question 2", answers, 1);
         McQuestion q3 = new McQuestion("Test question 3", answers, 1);
+
         questionArrayList.add(q1);
         questionArrayList.add(q2);
         questionArrayList.add(q3);
+
         return questionArrayList;
     }
 
-    public static ArrayList<McQuestion> getQuestionSetFromQuestionSetFile(String path) throws FileNotFoundException {
+    public static ArrayList<McQuestion> getQuestionSetFromQuestionSetFile(String path) throws FileNotFoundException
+    {
+
         ArrayList<McQuestion> questionSet = new ArrayList<>();
         if (path.endsWith(".json")) {
             questionSet = loadFromJSON(new File(path));
         } else if (path.endsWith(".txt")) {
             questionSet = loadFromTextFile(new File(path));
         } else {
-            // ERROR
             System.out.println("[ERROR]: Unsupported file format.");
         }
         return questionSet;
     }
 
-    public static void main(String[] args) {
-        log("Testing McQuestionLoader");
-        File loadFile = new File("loadfile.txt");
-        /*
-        try {
-            for(Question newQuestion: 
-            log(newQuestion.getPromptAndAnswers());
-        } catch (FileNotFoundException e) {
-            log("File not found.");
-        }
-        */
-        
-        log("-----------");
-        
-        
+    public static void main(String[] args)
+    {
+        System.out.println("Testing McQuestionLoader");
     }
-    public static void log(String s) {
-        System.out.println(s);
-
-    }
-
 }

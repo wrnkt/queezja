@@ -3,6 +3,7 @@ JC = javac
 JFLAGS  = -g -Wall
 
 JCFLAGS = -g -Xlint:unchecked
+
 CLASSDIR = classes
 CLASSPATH = .:./classes:./jsonclasses
 

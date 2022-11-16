@@ -1,10 +1,16 @@
 import java.util.ArrayList;
 
-class Questioner {
+class Questioner
+{
 
     private ResponseTracker[] trackerList;
 
-    public Questioner(ArrayList<McQuestion> questionList) {
+    public Questioner()
+    {
+    }
+
+    public Questioner(ArrayList<McQuestion> questionList)
+    {
         ArrayList<ResponseTracker> trackerArrList = new ArrayList<ResponseTracker>();
         for(McQuestion q: questionList) {
             trackerArrList.add(new ResponseTracker(q));
@@ -12,7 +18,8 @@ class Questioner {
         this.trackerList = trackerArrList.toArray(new ResponseTracker[trackerArrList.size()]);
     }
 
-    public Questioner(McQuestion[] questionList) {
+    public Questioner(McQuestion[] questionList)
+    {
         ArrayList<ResponseTracker> trackerArrList = new ArrayList<ResponseTracker>();
         for(McQuestion q: questionList) {
             trackerArrList.add(new ResponseTracker(q));
@@ -20,10 +27,8 @@ class Questioner {
         this.trackerList = trackerArrList.toArray(new ResponseTracker[trackerArrList.size()]);
     }
 
-    public Questioner() {
-    }
-
-    public void loadQuestions(ArrayList<McQuestion> questionList) {
+    public void loadQuestions(ArrayList<McQuestion> questionList)
+    {
         ArrayList<ResponseTracker> trackerArrList = new ArrayList<ResponseTracker>();
         for(McQuestion q: questionList) {
             trackerArrList.add(new ResponseTracker(q));
@@ -31,30 +36,16 @@ class Questioner {
         this.trackerList = trackerArrList.toArray(new ResponseTracker[trackerArrList.size()]);
     }
 
-    public void askQuestions() {
+    public void askQuestions()
+    {
         for (ResponseTracker rt: trackerList) {
             rt.getResponse();
 
         }
     }
 
-    /*
-    public Questioner(ArrayList<ResponseTracker> rt) {
-       // Questioner(ArrayList<ResponseTracker>) and Questioner(ArrayList<Question>) have the same erasure 
-
-       
-    }
-    */
-
-    public static void main(String[] args) {
-        log("test");
-
-    }
-
-    public static void log(String s) {
-        // TODO: make separate log class with static method to avoid
-        // repeating this over and over
-        System.out.println(s);
+    public static void main(String[] args)
+    {
     }
 
 }
