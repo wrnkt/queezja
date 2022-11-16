@@ -117,6 +117,19 @@ class McQuestionLoader extends QuestionLoader {
         return questionArrayList;
     }
 
+    public static ArrayList<McQuestion> getQuestionSetFromQuestionSetFile(String path) throws FileNotFoundException {
+        ArrayList<McQuestion> questionSet = new ArrayList<>();
+        if (path.endsWith(".json")) {
+            questionSet = loadFromJSON(new File(path));
+        } else if (path.endsWith(".txt")) {
+            questionSet = loadFromTextFile(new File(path));
+        } else {
+            // ERROR
+            System.out.println("[ERROR]: Unsupported file format.");
+        }
+        return questionSet;
+    }
+
     public static void main(String[] args) {
         log("Testing McQuestionLoader");
         File loadFile = new File("loadfile.txt");

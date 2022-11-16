@@ -19,14 +19,7 @@ class LocalSessionManager {
 
     // TODO: get a set of questions from a QuestionLoader
     public void loadQuestionSet(String path) throws FileNotFoundException {
-        if (path.endsWith(".json")) {
-            questionSet = mcql.loadFromJSON(new File(path));
-        } else if (path.endsWith(".txt")) {
-            questionSet = mcql.loadFromTextFile(new File(path));
-        } else {
-            // ERROR
-            System.out.println("[ERROR]: Unsupported file format.");
-        }
+        questionSet = mcql.getQuestionSetFromQuestionSetFile(path);
         q.loadQuestions(questionSet);
     }
 
