@@ -74,6 +74,13 @@ class McQuestion extends Question
         return getQuestionPrompt() + "\n" + getPossibleAnswers();
     }
 
+    public void questionLog()
+    {
+        System.out.println(String.format("Prompt: %s", questionPrompt));
+        System.out.println(String.format("Choices: %s", possibleAnswers.toString()));
+        System.out.println(String.format("AnswerIdx: %s", Arrays.toString(correctAnswerIdx)));
+    }
+
     public static void main(String[] args)
     {
         /*
