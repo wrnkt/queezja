@@ -31,5 +31,9 @@ run:
 	java -classpath $(CLASSPATH) LocalSessionManager
 		$(MAKE) clean
 
+rebuild:
+	make clean
+	make
+
 clean:
 		$(RM) $(CLASSDIR)/*.class
