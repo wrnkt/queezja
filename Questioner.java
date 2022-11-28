@@ -6,10 +6,6 @@ class Questioner
 
     private ResponseTracker[] trackerList;
 
-    public Questioner()
-    {
-    }
-
     public Questioner(ArrayList<McQuestion> questionList)
     {
         loadQuestions(questionList);
