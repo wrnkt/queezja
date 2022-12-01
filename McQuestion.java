@@ -1,7 +1,9 @@
 import java.util.Arrays;
 import java.util.ArrayList;
 
-class McQuestion extends Question
+import java.io.Serializable;
+
+public final class McQuestion extends Question implements Serializable
 {
 
     private final String questionPrompt;
